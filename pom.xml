@@ -211,7 +211,7 @@
 	<repositories>
     <repository>
       <id>${NEXUS-GRP-REPO}</id>
-      <url>http://${NEXUSIP}:${NEXUSPORT}/repository/${NEXUS-GRP-REPO}/</url>
+      <url>http://http://54.221.83.243:8081/repository/vprofile-maven-group//</url>
     </repository>
   </repositories>
 </project>

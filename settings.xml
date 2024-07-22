@@ -30,7 +30,7 @@
     <mirror>
       <id>${CENTRAL_REPO}</id>
       <name>${CENTRAL_REPO}</name>
-      <url>http://54.221.83.243:8081/repository/vprofile_maven_group/</url>
+      <url>https://repo.maven.apache.org/maven2</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>

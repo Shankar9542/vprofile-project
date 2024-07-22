@@ -30,7 +30,7 @@
     <mirror>
       <id>${CENTRAL_REPO}</id>
       <name>${CENTRAL_REPO}</name>
-      <url>http://${NEXUSIP}:${NEXUSPORT}/repository/${NEXUS_GRP_REPO}/</url>
+      <url>http://$http://54.221.83.243:8081/repository/vprofile-maven-group/</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>

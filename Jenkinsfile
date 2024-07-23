@@ -15,7 +15,7 @@ pipeline {
         NEXUSIP = '52.90.233.177'
         NEXUSPORT = '8081'
         NEXUS_GRP_REPO = 'vprofile-maven-group'
-        NEXUS_CREDENTIAL_ID = "nexuslogin"
+        NEXUS_CREDENTIAL_ID = 'nexuslogin'
     }
     
     stages {
@@ -43,15 +43,17 @@ pipeline {
             }
         }
         
-        
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    mvn sonar:sonar \
-                      -Dsonar.projectKey=javalogin \
-                     -Dsonar.host.url=http://100.26.111.73 \
-                    -Dsonar.login=c14a679c0c3b8002d74499f177e666e2786e79a2'
+                    sh '''
+                        mvn sonar:sonar \
+                            -Dsonar.projectKey=javalogin \
+                            -Dsonar.host.url=http://100.26.111.73 \
+                            -Dsonar.login=c14a679c0c3b8002d74499f177e666e2786e79a2
+                    '''
                 }
             }
         }
     }
+}

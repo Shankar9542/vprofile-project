@@ -16,8 +16,6 @@ pipeline {
         NEXUSPORT = '8081'
         NEXUS_GRP_REPO = 'vprofile-maven-group'
         NEXUS_CREDENTIAL_ID = "nexuslogin"
-        SONARSERVER = 'sonarserver'
-        SONARSCANNER = 'sonarscanner'
     }
     
     stages {
@@ -45,24 +43,14 @@ pipeline {
             }
         }
         
-        stage('SonarQube analysis') {
-//    def scannerHome = tool 'SonarScanner 4.0';
-        steps{
-        withSonarQubeEnv('sonarqube') { 
-        // If you have configured more than one global server connection, you can specify its name
-//      sh "${scannerHome}/bin/sonar-scanner"
-        sh "mvn sonar:sonar"
-    }
-        }
- }
         
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh 'mvn sonar:sonar ' +
-                       '-Dsonar.projectKey=javalogin ' +
-                       '-Dsonar.host.url=http://100.26.111.73 ' +
-                       '-Dsonar.login=a94673787b520bb47b5e2b7b134b50345f6a25df'
+                    mvn sonar:sonar \
+                      -Dsonar.projectKey=javalogin \
+                     -Dsonar.host.url=http://100.26.111.73 \
+                    -Dsonar.login=c14a679c0c3b8002d74499f177e666e2786e79a2'
                 }
             }
         }

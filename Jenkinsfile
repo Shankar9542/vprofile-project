@@ -48,23 +48,10 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
-        
-        stage('Sonar Analysis') {
-            steps {
-                def scannerHome = tool 'sonarscanner'
-                withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}/bin/sonar-scanner " 
-                       "-Dsonar.login=admin " 
-                       "-Dsonar.password=admin " 
-                       "-Dsonar.projectKey=javalogin " 
-                    mvn sonar:sonar \
-                      -Dsonar.projectKey=javalogin \
-                      -Dsonar.host.url=http://100.26.111.73 \
-                      -Dsonar.login=a94673787b520bb47b5e2b7b134b50345f6a25df
+                    sh 'mvn sonar:sonar ' +
+                       '-Dsonar.projectKey=javalogin ' +
+                       '-Dsonar.host.url=http://100.26.111.73 ' +
+                       '-Dsonar.login=a94673787b520bb47b5e2b7b134b50345f6a25df'
                 }
             }
         }

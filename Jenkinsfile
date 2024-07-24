@@ -64,7 +64,7 @@ pipeline {
                       groupId: 'QA',
                       version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                       repository: "${RELEASE_REPO}",
-                      credentialsId: "${NEXUS_CREDENTIAL_ID}", 
+                      credentialsId: 'nexuslogin', 
                       artifacts: [
                         [artifactId: 'vproapplication',
                          classifier: '',

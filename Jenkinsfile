@@ -55,15 +55,16 @@ pipeline {
                 }
             }
         }
-         stage("UploadArtifact"){
+        stage("UploadArtifact"){
                 steps{
                     nexusArtifactUploader(
                       nexusVersion: 'nexus3',
                       protocol: 'http',
-                      nexusUrl: "http://3.87.169.236:8081",
+                      nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
                       groupId: 'QA',
+                      version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                       repository: "${RELEASE_REPO}",
-                      credentialsId: "c14a679c0c3b8002d74499f177e666e2786e79a2",
+                      credentialsId: "${NEXUS_LOGIN}",
                       artifacts: [
                         [artifactId: 'vproapp',
                          classifier: '',
@@ -73,8 +74,5 @@ pipeline {
                     )
                 }
             }    
-
-        
-    
     }
 }

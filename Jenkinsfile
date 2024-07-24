@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven "MAVEN3"
-        jdk "OracleJDK8"
+        jdk "OracleJDK11"
     }
 
     environment {
@@ -12,7 +12,7 @@ pipeline {
         NEXUS_PASS = 'admin'
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vpro-maven-central'
-        NEXUSIP = '52.90.233.177'
+        NEXUSIP = '3.87.169.236'
         NEXUSPORT = '8081'
         NEXUS_GRP_REPO = 'vprofile-maven-group'
         NEXUS_CREDENTIAL_ID = 'nexuslogin'
@@ -49,7 +49,7 @@ pipeline {
                     sh '''
                         mvn sonar:sonar \
                             -Dsonar.projectKey=javalogin \
-                            -Dsonar.host.url=http://100.26.111.73 \
+                            -Dsonar.host.url=http://3.88.220.182 \
                             -Dsonar.login=c14a679c0c3b8002d74499f177e666e2786e79a2
                     '''
                 }

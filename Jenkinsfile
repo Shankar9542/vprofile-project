@@ -60,10 +60,10 @@ pipeline {
                     nexusArtifactUploader(
                       nexusVersion: 'nexus3',
                       protocol: 'http',
-                      nexusUrl: "$3.87.169.236:8081:$8081",
+                      nexusUrl: "3.87.169.236:8081",
                       groupId: 'QA',
                       repository: "${RELEASE_REPO}",
-                      credentialsId: "$c14a679c0c3b8002d74499f177e666e2786e79a2",
+                      credentialsId: "c14a679c0c3b8002d74499f177e666e2786e79a2",
                       artifacts: [
                         [artifactId: 'vproapp',
                          classifier: '',
